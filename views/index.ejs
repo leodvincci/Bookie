@@ -21,7 +21,7 @@
             <input type="text" placeholder="book title" name="bookTitle">
             <input type="text" placeholder="book author" name="bookAuthor" >
             <button type="submit">submit</button>
-            <input type="file" name="" id="">
+            <input type="file" name="bookImg" id="">
 
         </form>
 
@@ -31,24 +31,29 @@
 </header>
 
 <main>
+    <% for(let i = 0; i < books.length; i++){ %>
+    <div id="card-id-<%=i%>" class="book-card">
+            <div id="<%=books[i]._id%>"> </div>
 
-    <div class="book-card">
 
-        <p id="book-title">Book Title</p>
-        <p id="book-author">Book Author</p>
-        <h4 id="book-img">Book Img</h4>
+            <p style=" font-weight: bold;" class="book-title"> <%= books[i].bookTitle %> </p>
+            <p class="book-author"><%= books[i].bookAuthor %></p>
+            <img class="book-img" src="<%= books[i].bookImg%>" >
 
-        <i id="update-icon" class="fa-solid fa-pencil"></i>
-        <i id="delete-icon" class="fa-solid fa-trash"></i>
 
-        <i id="like-icon" class="fa-solid fa-thumbs-up"></i>
-        <p id="dislike-count">42</p>
-        <p id="like-count" >101</p>
 
-        <i id="dislike-icon" class="fa-solid fa-thumbs-down"></i>
+        <i class="update-icon fa-solid fa-pencil"></i>
+        <i class="delete-icon fa-solid fa-trash"></i>
 
+        <i id="like-id-<%=i%>" class="like-icon fa-solid fa-thumbs-up"></i>
+        <p class="dislike-count"><%= books[i].bookDislikes%></p>
+        <p id="likeCount-id-<%=i%>" name="likeCount" class="like-count" ><%= books[i].bookLikes%></p>
+
+        <i  class="dislike-icon fa-solid fa-thumbs-down"></i>
 
     </div>
+        <%}%>
+
 
 
 </main>
@@ -58,6 +63,9 @@
 <footer>
 
 </footer>
+
+
+<script src="main.js"></script>
 
 </body>
 </html>

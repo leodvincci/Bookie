@@ -9,7 +9,11 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.static('public'));
 app.use(bodyParser.json())
 app.set('view engine', 'ejs')
-
+const multer  = require('multer')
+// const upload = multer({ dest: 'uploads/' })
+const storage = multer.memoryStorage()
+const upload = multer({ storage: storage })
+upload.single('bookCover')
 const { MongoClient, ServerApiVersion, ObjectId} = require('mongodb');
 const uri = "mongodb+srv://demodatabase:demodatabase123321@bookie.9gqfpoa.mongodb.net/test?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
@@ -38,10 +42,10 @@ app.get("/",(request,respond)=>{
 })
 
 
-app.post("/postbook",(request,respond)=>{
+app.post("/postbook", upload.single("bookCover") ,(request,respond)=>{
 
     client.db(myDatabase).collection(myCollection).insertOne(
-        {bookTitle:request.body.bookTitle,bookAuthor:request.body.bookAuthor, bookImg: request.body.bookImg, bookLikes:0, bookDislikes:0 }
+        {bookTitle:request.body.bookTitle,bookAuthor:request.body.bookAuthor, bookImg: request.file.buffer, bookLikes:0, bookDislikes:0 }
     )
         .then(()=>{
             console.log("New Book Added")
@@ -52,6 +56,7 @@ app.post("/postbook",(request,respond)=>{
 
 
 })
+
 
 
 app.put("/updatelike",(request,response)=>{

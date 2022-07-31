@@ -16,15 +16,17 @@
     <nav>
 
 
-        <form action="/postbook" method="post">
+        <form action="/postbook" method="post" >
 
             <input type="text" placeholder="book title" name="bookTitle">
             <input type="text" placeholder="book author" name="bookAuthor" >
             <button type="submit">submit</button>
-            <input type="file" name="bookImg" id="">
 
         </form>
 
+        <form action="/bookCover" method="post" enctype="multipart/form-data">
+            <input type="file" name="bookCover" />
+        </form>
 
     </nav>
 

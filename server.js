@@ -13,7 +13,6 @@ const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology:
 client.connect(err => {
     const collection = client.db("test").collection("devices");
     // perform actions on the collection object
-    client.close();
 });
 
 
@@ -31,11 +30,15 @@ app.get("/",(request,respond)=>{
 
 app.post("/postbook",(request,respond)=>{
 
-    respond.send("You Posted A new book!! Congrats!")
-
-    // client.db(myDatabase).collection(myCollection).insertOne(
-    //     { bookTitle:"Inspired",bookAuthor:"Marty Cagan",bookImg: "https://covers.openlibrary.org/b/id/9700654-L.jpg", bookLikes:0,bookDislikes:0 }
-    // )
+    client.db(myDatabase).collection(myCollection).insertOne(
+        {bookTitle:request.body.bookTitle,bookAuthor:request.body.bookAuthor, bookImg: "", bookLikes:0, bookDislikes:0 }
+    )
+        .then(()=>{
+            console.log("New Book Added")
+        })
+        .then(()=>{
+            respond.redirect("/")
+        })
 
 
 })

@@ -72,6 +72,21 @@ main{
     align-self: center;
 }
 
+#like-count{
+    font-size: 1rem;
+    grid-column: 5 / 6;
+    grid-row: 6 / 7;
+    justify-self: center;
+    align-self: start;
+}
+#dislike-count{
+    font-size: 1rem;
+    grid-column: 2 / 3;
+    grid-row: 6 / 7;
+    justify-self: center;
+    align-self: start;
+}
+
 #book-img{
     text-align: center;
     justify-self: center;

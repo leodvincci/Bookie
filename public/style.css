@@ -1,0 +1,152 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: #2D3142;
+}
+
+main{
+    display: flex;
+    flex-wrap: wrap;
+    overflow: scroll;
+    justify-content: space-evenly;
+    align-items: start;
+    height: 90%;
+    width: 100%;
+    background-color: rgb(239, 239, 239);
+}
+
+
+.book-card{
+    font-size: .8rem;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    margin: 2rem;
+    height: 16rem;
+    width: 14rem;
+    border-radius: 2rem;
+    background-color: #ffffff;
+    box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.59);
+}
+
+#like-icon{
+    font-size: 1.3rem;
+
+    grid-column: 5 / 6;
+    grid-row: 5 / 6;
+    justify-self: center;
+    align-self: center;
+}
+
+#like-icon:hover{
+    color: seagreen;
+    cursor: pointer;
+    transition-duration: 300ms;
+
+}
+#dislike-icon:hover{
+    color: crimson;
+    cursor: pointer;
+    transition-duration: 300ms;
+}
+
+#dislike-icon{
+    font-size: 1.3rem;
+
+    grid-column: 2 / 3;
+    grid-row: 5 / 6;
+    justify-self: center;
+    align-self: center;
+}
+
+#book-img{
+    text-align: center;
+    justify-self: center;
+    background-color: blueviolet;
+    height: 100%;
+    width: 75%;
+    border-radius: .6rem;
+    align-self: center;
+    grid-column: 2 / 6;
+    grid-row: 2 / 5;
+}
+
+#book-title{
+    grid-column: 2 / 6;
+    grid-row: 1 / 1;
+    justify-self: center;
+    align-self: start;
+    padding-top: 4px;
+}
+
+#book-author{
+    grid-column: 2 / 6;
+    grid-row: 1 / 1;
+    justify-self: center;
+    align-self: end;
+}
+
+#delete-icon{
+    font-size: .7rem;
+    grid-column: 1 / 2;
+    grid-row: 6 / 7;
+    justify-self: center;
+    align-self: center;
+}
+
+#update-icon{
+    font-size: .7rem;
+    grid-column: 6 / 7;
+    grid-row: 6 / 7;
+    justify-self: center;
+    align-self: center;
+}
+
+
+.book-content{
+
+}
+
+nav{
+    width: 100vw;
+    display: flex;
+    justify-content: space-around;
+}
+form{
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+nav > form input{
+    font-size: 1rem;
+    margin-left: 1rem;
+}
+
+button{
+    background-color: #EF8354;
+    margin-left: 1rem;
+    margin-right: 2rem;
+    font-size: 1rem;
+    padding: .4rem;
+    border-radius: .2rem;
+    border: none;
+}
+
+button:hover{
+    cursor: pointer;
+    background-color: #ff9d72;
+}

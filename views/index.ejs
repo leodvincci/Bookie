@@ -18,14 +18,16 @@
 
         <form action="/postbook" method="post" >
 
-            <input type="text" placeholder="book title" name="bookTitle">
-            <input type="text" placeholder="book author" name="bookAuthor" >
-            <button type="submit">submit</button>
+
 
         </form>
 
-        <form action="/bookCover" method="post" enctype="multipart/form-data">
+        <form action="/postbook" method="post" enctype="multipart/form-data">
+
+            <input type="text" placeholder="book title" name="bookTitle">
+            <input type="text" placeholder="book author" name="bookAuthor" >
             <input type="file" name="bookCover" />
+            <button type="submit">submit</button>
         </form>
 
     </nav>
@@ -40,7 +42,7 @@
 
             <p style=" font-weight: bold;" class="book-title"> <%= books[i].bookTitle %> </p>
             <p class="book-author"><%= books[i].bookAuthor %></p>
-            <img class="book-img" src="<%= books[i].bookImg%>" >
+            <img class="book-img" src="<%= books[i].imageUrl%>" >
 
 
 
